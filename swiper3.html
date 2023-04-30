@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<style>
+    .swiper-container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .swiper-slide {
+        height: 100vh;
+        background-color: #00f;
+    }
+
+    .circle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        
+    }
+
+    .circle.active {
+        opacity: 1;
+    }
+
+    .circle-content {
+        text-align: center;
+    }
+
+    .circle h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .circle p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .circle1 {
+        background-color: white;
+    }
+
+    .circle2 {
+        background-color: white;
+    }
+
+    .circle3 {
+        background-color: white;
+    }
+
+    .circle4 {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="circle circle1">
+                    <div class="circle-content">
+                        <h2>Content 1</h2>
+                        <p>This is the content for circle 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="circle circle2">
+                    <div class="circle-content">
+                        <h2>Content 2</h2>
+                        <p>This is the content for circle 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="circle circle3">
+                    <div class="circle-content">
+                        <h2>Content 3</h2>
+                        <p>This is the content for circle 3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="circle circle4">
+                    <div class="circle-content">
+                        <h2>Content 4</h2>
+                        <p>This is the content for circle 4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            effect : 'fade', // 페이드 효과 사용
+            direction: 'vertical',
+            slidesPerView: 1,
+            mousewheel: true,
+            on: {
+                init: function () {
+                    $('.circle1').addClass('active');
+                },
+                slideChangeTransitionStart: function () {
+                    var index = this.activeIndex + 1;
+                    $('.circle').removeClass('active');
+                    $('.circle' + index).addClass('active');
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
